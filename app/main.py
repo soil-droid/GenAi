@@ -84,6 +84,14 @@ def create_app() -> FastAPI:
     application.include_router(note_router)
     application.include_router(schedule_router)
 
+    from fastapi.responses import FileResponse
+    import os
+
+    @application.get("/", include_in_schema=False)
+    async def serve_ui():
+        ui_path = os.path.join(os.path.dirname(__file__), "static", "index.html")
+        return FileResponse(ui_path)
+
     return application
 
 
