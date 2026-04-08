@@ -1,0 +1,22 @@
+# Environments
+.env
+
+# Python overrides
+__pycache__/
+*.py[cod]
+*$py.class
+.*_cache/
+.pytest_cache/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Agent state and local databases
+*.db
+*.sqlite3
+
+# The Claude Agent Folder (optional depending on if you want judges to see the plans)
+.claude/
