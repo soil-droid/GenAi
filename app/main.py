@@ -31,8 +31,15 @@ async def lifespan(application: FastAPI) -> AsyncGenerator[None, None]:
     )
     # Import engine here to avoid circular imports during testing
     from app.db.engine import engine  # noqa: F811
+    from app.db.models import Base
 
-    logger.info("Database engine created (pool_size=5)")
+    logger.info("Database engine created configured for immediate setup")
+
+    # Automatically create tables for SQLite MVP
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+        
+    logger.info("Database schema initialized.")
 
     yield
 

@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     gemini_model: str = "gemini-1.5-pro-preview-0409"
 
     # Database
-    database_url: str = "postgresql+asyncpg://user:password@localhost:5432/productivity_db"
+    database_url: str = "sqlite+aiosqlite:///./productivity.db"
 
     # Application
     environment: str = "development"
