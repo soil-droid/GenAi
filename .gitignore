@@ -18,5 +18,9 @@ __pycache__/
 *.db
 *.sqlite3
 
+# GCP Service Account Keys
+*.json
+genaiacad-*.json
+
 # The Claude Agent Folder (optional depending on if you want judges to see the plans)
 .claude/
